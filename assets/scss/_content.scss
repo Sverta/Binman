@@ -1,0 +1,264 @@
+// 	MIXINS
+@mixin iconStyle {
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	border-radius: 3px;
+	text-align: center;
+	margin: 0 6px 0 0;
+	span {
+		font-size: 18px;
+		line-height: 37px;
+		display: block;	
+	}
+}
+
+// input group mixins
+
+@mixin inputGrTEXT {
+	color: #fff;
+	z-index: 4;
+	border-top: 0;
+	border-bottom: 0;
+	span {
+		font-size: 12px;
+		font-weight: 400;
+		vertical-align: middle;
+	}
+}
+@mixin inputGrBTN {
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 8px;
+	text-transform: uppercase;
+	border: none;
+}
+
+/////////
+
+body { 
+	background-color: #EFF3F5;	
+}
+
+// sidebar
+
+.bm-sidebar {
+	height: 100%;
+	width: 80px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	background-color: #323a45;
+	text-align: center;
+	box-shadow: 0px 0px  10px rgba(0,0,0,0.3);	
+	a {
+		color: #818181;
+		display: block;
+		width: 50px;
+		height: 40px;
+		background: #282e37;
+		border-radius: 4px;
+		margin: 85px auto;
+		span{
+			font-size: 20px;
+			line-height: 40px;
+		}
+	}
+}
+.fix-to-top {
+	margin: 15px auto !important;
+}
+
+// main block
+.bm-main {
+	margin-left: 80px;
+	padding: 16px 15px;
+	&_text {
+		p{
+			font-size: 12px;
+			letter-spacing: 0.2px;
+		}
+	}
+}
+
+.bm-main_table {
+	background: #ffffff;
+	border-radius: 4px;
+	margin: 25px 0;
+	th {
+		border:none;
+		color: #475364;
+		font-family: 'Roboto', sans-serif;
+		font-size: 11px;
+		font-weight: 700;
+		line-height: 12px;
+		padding: 13px 19px;
+  	// text-transform: uppercase;
+  }
+  td {
+  	padding-left: 19px;
+  	vertical-align: middle !important;
+  }
+  p {
+  	font-size: 10px;
+  	font-weight: 400;
+  	line-height: 0;
+  }
+  span {
+  	font-size: 12px;
+  	font-weight: 700;
+  	vertical-align: middle;
+  }
+}
+
+.bm-main_table-col-left{
+	&-green {
+		@include iconStyle;
+		background: #b2d170;
+	}
+	&-red{
+		@include iconStyle;
+		background: #ff5943;
+	}
+	&-grey {
+		@include iconStyle;
+		background: #e8eff1;
+	}
+}
+.bm-main_table-col-right {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 2px 0;
+}
+
+.bm-main_table-col-row {
+	line-height: 16px;
+}
+
+// input group styles
+
+.bm-main_table-col-inputGr-icon{
+	&-grey {
+		background: #8ea4b5;
+		border: none;
+		span {
+			color: #fff;
+			font-size: 17px;
+		}
+	}
+	&-red {
+		background: #ff5943;
+		color: #fff;
+		border: none;
+		font-size: 14px;
+	}
+}
+.bm-main_table-col-inputGr-text {
+	&-grey {
+		background: #8ea4b5;
+		border-left: 1px solid #7e94a4;
+		border-right: 1px solid #7e94a4;
+		@include inputGrTEXT;
+	}
+	&-red {
+		background: #ff5943;
+		border-left: 1px solid #e84f3a;
+		border-right: 1px solid #e84f3a;
+		@include inputGrTEXT;
+	}
+}
+.btn-bm_inputGr-details {
+	&-grey {
+		background: #8ea4b5;
+		@include inputGrBTN;
+	}
+	&-red {
+		background: #ff5943;
+		@include inputGrBTN;
+	}	
+}
+
+.bm-main_table-arrow-box{
+	width: 24px;
+	height: 24px;
+	background: #f4f9fb;
+	border-radius: 50%;
+	margin: auto;
+	text-align: center;
+	display: block;
+	.icon-select-arrow {
+		font-size:8px;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+.showActive {
+	transform: rotate(180deg);
+	span {
+		padding-bottom: 4px;
+	}
+}
+// toggle block
+.bm-main_table-toggle{
+	background-color: #f7fbfc;
+	p {
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 5px;
+	}
+	&-link {
+		color: #475364;
+		font-size: 12px;
+		font-weight: 700;
+		line-height: 12px;
+		float: right;
+		margin-top: 15px;
+		&:hover {
+			color: #475364;
+		}
+	}
+	&-box {
+		margin: 22px 0px 17px;
+		background-color: #fff;
+		th {
+			font-size: 11px;
+			padding-left: 23px;
+		}
+		td {
+			font-weight: 700;
+			font-size: 12px;
+			line-height: 14px;
+			padding: 15px 20px;
+		}
+
+	}
+}
+.btn_table-toggle{
+	border: 1px solid #d4e2e7;
+	background: #ffffff;
+	border-radius: 4px;
+	font-size: 13px;
+	font-weight: 700;
+	padding: 8px 15px;
+	margin-bottom: 8px;
+	i {
+		font-size: 12px;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.bm-main-container {
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
+	}
+
+}
+@media only screen and (max-width: 1260px) {
+	.bm-main_table-col-inputGr-text-grey {
+		display: none;
+	}
+}

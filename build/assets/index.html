@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- <link rel="stylesheet" href="https://i.icomoon.io/public/temp/37058fa4e7/UntitledProject/style.css"> -->
+	<link rel="stylesheet" href="css/style.css">
+	<title>Binman</title>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+	<header class="header">
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+				<a class="navbar-brand header-logo" href="#">
+					<img src="../img/logo.png" alt="Brand Logo">
+				</a>
+			</div>
+		</nav>
+	</header>
+<main ng-app="bmApp" ng-controller="bmController" ng-cloak>
+  <section class="bm-sidebar" >
+    <a href="#" set-class-when-at-top="fix-to-top">
+     <span class="icon-clients" ></span>
+   </a>
+ </section>
+
+ <section class="bm-main">
+  <div class="container-fluid bm-main-container">
+    <h1>Ваши клиенты</h1>
+    <div class="bm-main_text">
+      <p>Всего погрузок: <span>2020</span></p>
+    </div>
+
+    <table class="table bm-main_table">
+      <thead>
+        <tr>
+          <th scope="col">ГЕОЗОНА</th>
+          <th scope="col">ДОГОВОРЫ</th>
+          <th scope="col">ОБЪЕКТЫ</th>
+          <th scope="col">НАЧИСЛЕНИЯ И ОБЪЕМ</th>
+          <th scope="col">ГЕОЗОНЫ И КОНТЕЙНЕРЫ</th>
+          <th scope="col"></th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-class="{'showActiveShadow':showInfo}">
+          <td>
+            <div class="bm-main_table-col-left-green">
+              <span class="icon-active-company"></span>
+            </div>
+            <div class="bm-main_table-col-right">
+              <h3>УФССП РОССИИ ПО КЕМЕРОВСКОЙ ОБЛАСТИ</h3>
+              <p>ИНН: 4205077474</p>
+              <p>ОГРН: 1044205103832</p>
+            </div>
+          </td>
+          <td>
+            <div class="bm-main_table-col-left-green">
+              <span class="icon-Documents"></span>
+            </div>
+            <div class="bm-main_table-col-right">
+              <h3>№12-СЖ/12 от 24.01.2019</h3>
+              <p>График вывоза: По заявке</p>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span class="icon-object"></span>
+              <span><span>2</span> объекта</span>
+            </div>
+          </td>
+          <td>
+            <div class="bm-main_table-col-row">
+              <span class="icon-money"></span>
+              <span><span>3 040</span><span> &#8381;</span></span>
+            </div>
+            <div class="bm-main_table-col-row">
+              <span class="icon-recycle"></span>
+              <span><span>8</span> m<sup>2</sup></span>
+            </div>
+          </td>
+          <td>
+           <div class="bm-main_table-col-row">
+            <span class="icon-area"></span>
+            <span><span>1</span> геозона</div>
+          </div>
+          <div class="bm-main_table-col-row">
+            <span class="icon-container"></span>
+            <span><span>6</span> контейнеров - <span>6.6</span> m<sup>2</sup></div>
+          </div>
+        </td>
+        <td>
+          <a href="" class='bm-main_table-arrow-box' ng-click="showInfo = !showInfo" ng-class="{'showActive':showInfo}">
+            <span class="icon-select-arrow"></span>
+          </a>
+        </td>
+      </tr>
+
+      <!-- hide/show block -->
+      <tr ng-show="showInfo" ng-class="{'showActiveShadow':showInfo}" class="bm-main_table-toggle">
+        <td colspan="6">
+
+          <h2>Объекты клиента</h1>
+
+            <p>Всего объектов: <span>2</span></p>
+
+            <table class="table bm-main_table-toggle-box">
+              <thead>
+                <tr>
+                  <th>ОБЪЕКТ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="prof in profile">
+                  <td>{{prof}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <button class='btn btn-outline-secondary btn_table-toggle'>
+             <i class="icon-card"></i> Перейти в карточку
+           </button>
+
+           <a class="bm-main_table-toggle-link" href="#">Скрыть детали</a>
+
+         </td>
+       </tr>
+       <!-- the second row -->
+       <tr>
+        <td>
+          <div class="bm-main_table-col-left-red">
+            <span class="icon-not-active-company"></span>
+          </div>
+          <div class="bm-main_table-col-right">
+            <h3>ООО СИСТЕМА УНИВЕРСАМОВ "БЕГЕМОТ"</h3>
+            <p>ИНН: 4205259611</p>
+            <p>ОГРН: 1134205003580</p>
+          </div>
+        </td>
+        <td>
+          <div class="input-group bm-main_table-col-inputGr">
+            <div class="input-group-prepend">
+              <span class="input-group-text bm-main_table-col-inputGr-icon-grey"><span class="icon-Documents"></span></span>
+            </div>
+            <div class="form-control bm-main_table-col-inputGr-text-grey">
+              <span>C клиентом заключено 2 договора</span>
+            </div>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary btn-bm_inputGr-details-grey" type="button">Подробнее</button>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div>
+            <span class="icon-object"></span>
+            <span><span>327</span> объектов</div>
+          </div>
+        </td>
+        <td>
+          <div class="bm-main_table-col-row">
+            <span class="icon-money"></span>
+            <span><span>238985.15</span><span> &#8381;</span></div>
+          </div>
+          <div class="bm-main_table-col-row">
+            <span class="icon-recycle"></span>
+            <span><span>236.52</span> m<sup>2</sup></div>
+          </div>
+        </td>
+        <td>
+         <div class="bm-main_table-col-row">
+          <span class="icon-area"></span>
+          <span><span>2</span> геозоны</div>
+        </div>
+        <div class="bm-main_table-col-row">
+          <span class="icon-container"></span>
+          <span><span>3</span> контейнера - <span>10.2</span> m<sup>2</sup></div>
+        </div>
+      </td>
+      <td>
+        <a href="" class='bm-main_table-arrow-box'>
+          <span class="icon-select-arrow"></span>
+        </a>
+      </td>
+    </tr>
+    <!-- the third row -->
+    <tr>
+     <td>
+      <div class="bm-main_table-col-left-grey">
+        <span class="icon-archive-company"></span>
+      </div>
+      <div class="bm-main_table-col-right">
+        <h3>ООО "САТУРН"</h3>
+        <p>ИНН: 5404461077</p>
+        <p>ОГРН: 1125476079981</p>
+      </div>
+    </td>
+    <td colspan="4">
+      <div class="input-group bm-main_table-col-inputGr">
+        <div class="input-group-prepend">
+          <span class="input-group-text bm-main_table-col-inputGr-icon-red">&#10005;</span>
+        </div>
+        <div class="form-control bm-main_table-col-inputGr-text-red">
+          <span>С клиентом нет заключенных договоров</span>
+        </div>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary btn-bm_inputGr-details-red" type="button">Заключить договор</button>
+        </div>
+      </div>
+    </td>
+    <td>
+      <a href="" class='bm-main_table-arrow-box'>
+        <span class="icon-select-arrow"></span>
+      </a>
+    </td>
+  </tr>
+  <!-- the fouth row -->
+  <tr>
+    <td>
+      <div class="bm-main_table-col-left-green">
+        <span class="icon-active-individual-client"></span>
+      </div>
+      <div class="bm-main_table-col-right">
+        <h3>Константинопольский Александр Валентинович</h3>
+        <p>ИНН: Не указан</p>
+        <p>Паспорт: 4200 200793</p>
+      </div>
+    </td>
+    <td>
+      <div class="bm-main_table-col-left-green">
+        <span class="icon-Documents"></span>
+      </div>
+      <div class="bm-main_table-col-right">
+        <h3>№12-СЖ/12 от 24.01.2019</h3>
+        <p>График вывоза: По заявке</p>
+      </div>
+    </td>
+    <td>
+      <div>
+        <span class="icon-object"></span>
+        <span><span>2</span> объекта</span>
+      </div>
+    </td>
+    <td>
+      <div class="bm-main_table-col-row">
+        <span class="icon-money"></span>
+        <span><span>1024</span><span> &#8381;</span></span>
+      </div>
+      <div class="bm-main_table-col-row">
+        <span class="icon-recycle"></span>
+        <span><span>1</span> m<sup>2</sup></span>
+      </div>
+    </td>
+    <td>
+     <div class="bm-main_table-col-row">
+      <span class="icon-area"></span>
+      <span><span>2</span> геозоны</span>
+    </div>
+    <div class="bm-main_table-col-row">
+      <span class="icon-container"></span>
+      <span><span>3</span> контейнера - <span>10.2</span> m<sup>2</sup></span>
+    </div>
+  </td>
+  <td>
+    <a href="" class='bm-main_table-arrow-box'>
+      <span class="icon-select-arrow"></span>
+    </a>
+  </td>
+</tr>
+<!-- the fifth row -->
+<tr>
+  <td>
+    <div class="bm-main_table-col-left-red">
+      <span class="icon-not-active-individual-client"></span>
+    </div>
+    <div class="bm-main_table-col-right">
+      <h3>Воронов Александр Ярославович</h3>
+      <p>ИНН: Не указан</p>
+      <p>Паспорт: Не указан</p>
+    </div>
+  </td>
+  <td>
+    <div class="bm-main_table-col-left-red">
+      <span class="icon-DocumentsCR"></span>
+    </div>
+    <div class="bm-main_table-col-right">
+      <h3>№12-СЖ/12 от 24.01.2019</h3>
+      <p>График вывоза: Ежедневный</p>
+    </div>
+  </td>
+  <td>
+    <div>
+      <span class="icon-object"></span>
+      <span><span>1</span> объект</div>
+    </div>
+  </td>
+  <td>
+    <div class="bm-main_table-col-row">
+      <span class="icon-money"></span>
+      <span><span>3678</span><span> &#8381;</span></span>
+    </div>
+    <div class="bm-main_table-col-row">
+      <span class="icon-recycle"></span>
+      <span><span>2.56</span> m<sup>2</sup></span>
+    </div>
+  </td>
+  <td>
+   <div class="bm-main_table-col-row">
+    <span class="icon-area"></span>
+    <span><span>1</span> геозона</span>
+  </div>
+  <div class="bm-main_table-col-row">
+    <span class="icon-container"></span>
+    <span><span>1</span> контейнер - <span>0.66</span> m<sup>2</sup></span>
+  </div>
+</td>
+<td>
+  <a href="" class='bm-main_table-arrow-box'>
+    <span class="icon-select-arrow"></span>
+  </a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<footer>
+	
+	<div class="container">
+		<div class="row">
+			
+		</div>
+	</div>
+</footer>
+
+
+<script src="js/scripts.min.js"></script> 
+</body>
+</html>
